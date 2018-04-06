@@ -121,6 +121,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+#main-title{
+  font-family: "Comic Sans MS", cursive, sans-serif;}
+
 @media (max-width: 768px) {
   #hero h1 {
     font-size: 28px;
@@ -778,29 +781,37 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 0 2px;
 }
 
-/* Contact Section
+/* Post Section
 --------------------------------*/
-#contact {
+#post {
   background: #f7f7f7;
-  padding: 80px 0;
+  padding: 21px 0;
 }
 
-#contact .info {
+#post .section-title {
+  font-size: 32px;
+  color: #03C4EB;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+}
+
+#post .info {
   color: #333333;
 }
 
-#contact .info i {
+#post .info i {
   font-size: 32px;
   color: #03C4EB;
   float: left;
 }
 
-#contact .info p {
-  padding: 0 0 10px 50px;
+#post .info p {
+  padding: 0 0 0px 50px;
   line-height: 24px;
 }
 
-#contact .form #sendmessage {
+#post .form #sendmessage {
   color: #03C4EB;
   border: 1px solid #03C4EB;
   display: none;
@@ -810,7 +821,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
 }
 
-#contact .form #errormessage {
+#post .form #errormessage {
   color: red;
   display: none;
   border: 1px solid red;
@@ -820,11 +831,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
 }
 
-#contact .form #sendmessage.show, #contact .form #errormessage.show, #contact .form .show {
+#post .form #sendmessage.show, #post .form #errormessage.show, #post .form .show {
   display: block;
 }
 
-#contact .form .validation {
+#post .form .validation {
   color: red;
   display: none;
   margin: 0 0 20px;
@@ -832,12 +843,23 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
 }
 
-#contact .form input, #contact .form textarea {
-  border-radius: 0;
+#post .form input {
+  border-radius: 8px;
   box-shadow: none;
+
 }
 
-#contact .form button[type="submit"] {
+ #post .form textarea
+ {  
+    box-shadow: none;
+ }
+
+ #post .form #fileUpload
+ {
+  color: #495057;
+ }
+
+#post .form button[type="submit"] {
   background: #03C4EB;
   border: 0;
   padding: 10px 24px;
@@ -845,7 +867,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: 0.4s;
 }
 
-#contact .form button[type="submit"]:hover {
+#post .form button[type="submit"]:hover {
   background: #25d8fc;
 }
 
