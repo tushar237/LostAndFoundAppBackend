@@ -489,11 +489,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 #about {
   background: #fff;
-  padding: 80px 0;
+  padding: 21px 0;
 }
 
 #about .about-container {
-  background: url(../assets/img/about-img.jpg) left top no-repeat;
+  background: url(../assets/img/aboutL&F.jpg) left top no-repeat;
 }
 
 #about .about-content {
@@ -869,6 +869,21 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #post .form button[type="submit"]:hover {
   background: #25d8fc;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover
+{
+	color: #fff;
+background-color: #03C4EB;
+}
+
+.margin-section-title
+{
+	margin-left: 3.5%;
+}
+.margin-section-description
+{
+	margin-left:11%;
 }
 
 /*--------------------------------------------------------------

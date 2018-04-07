@@ -7,6 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  tabIndex:number= 0;
   constructor(
-  ){}
+  ){
+	  
+  }
+  
+  changeTab(index)
+	  { 
+		 this.tabIndex=index; 
+		 //alert(this.tabIndex);
+	  }
 }
