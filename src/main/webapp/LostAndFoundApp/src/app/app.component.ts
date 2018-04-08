@@ -46,7 +46,7 @@ export class AppComponent {
 	  var data={"category":this.selectedCategory,"name":this.name,"email":this.email,"attachment":this.attachment,
 	  "description":this.description,"lostRcvDate":"08-04-2018"};
 	  this.lostFormData={"createdOn":new Date().toString(),"data":data};
-	  console.log(JSON.stringify(this.lostFormData));
+	  alert(JSON.stringify(this.lostFormData));
   }
 	  
 	  
