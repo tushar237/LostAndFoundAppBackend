@@ -12,7 +12,7 @@ export class AppComponent {
   lostFormData:any={};
   selectedCategory:number=0;
   name:String="";
-  emailId:String="";
+  email:String="";
   phone:String="";
   attachment:String="";
   description:String="";
