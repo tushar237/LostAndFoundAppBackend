@@ -11,19 +11,15 @@ import com.techtransformers.lostnfound.entity.LostAndFoundEntity;
 @Repository("lostAndFoundDao")
 @Transactional
 public class LostAndFoundDaoImpl implements LostAndFoundDao {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void insertLostItem(LostAndFoundEntity lostItem) {
-			sessionFactory.getCurrentSession().save(lostItem);
+	public Integer insertLostItem(LostAndFoundEntity lostItem) {
+		return (Integer) sessionFactory.getCurrentSession().save(lostItem);
 	}
 
-	public void insertFoundItem(LostAndFoundEntity foundItem) {
-			sessionFactory.getCurrentSession().save(foundItem);
+	public Integer insertFoundItem(LostAndFoundEntity foundItem) {
+		return (Integer) sessionFactory.getCurrentSession().save(foundItem);
 	}
-
-	
-	
-	
 }

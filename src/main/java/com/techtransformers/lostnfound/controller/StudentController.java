@@ -18,5 +18,4 @@ public class StudentController {
     public Student message(@PathVariable Integer rollNo) {
         return studentService.findByRollNo(rollNo);
     }
-	
 }

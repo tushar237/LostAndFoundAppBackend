@@ -4,6 +4,7 @@ import com.techtransformers.lostnfound.entity.LostAndFoundEntity;
 
 public interface LostAndFoundDao {
 
-	void insertLostItem(LostAndFoundEntity item);
-	void insertFoundItem(LostAndFoundEntity item);
+	Integer insertLostItem(LostAndFoundEntity item);
+
+	Integer insertFoundItem(LostAndFoundEntity item);
 }
