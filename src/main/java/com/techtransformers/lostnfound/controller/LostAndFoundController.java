@@ -1,5 +1,5 @@
 package com.techtransformers.lostnfound.controller;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,8 @@ public class LostAndFoundController {
 
 	@Autowired
 	private LostAndFoundService lostAndFoundService;
-
+	@CrossOrigin(origins = {"http://192.168.56.1:8080","*"},
+            maxAge = 4800, allowCredentials = "false") 
 	@RequestMapping(value = "/report/lost", method = RequestMethod.POST, headers = "Accept=application/json")
 	public ResponseEntity<LostAndFoundItemResponse> insertLostItem(@RequestBody LostAndFound lostItem)
 			throws LostAndFoundItemException {

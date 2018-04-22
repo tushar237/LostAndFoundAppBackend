@@ -21,10 +21,10 @@ public class SpringInitializer extends AbstractAnnotationConfigDispatcherServlet
 		return new String[] {"/"};
 	}
 	
-	@Override
+	/*@Override
     protected Filter[] getServletFilters() {
     	Filter [] singleton = { new CORSFilter() };
     	return singleton;
-	}
+	}*/
 
 }
