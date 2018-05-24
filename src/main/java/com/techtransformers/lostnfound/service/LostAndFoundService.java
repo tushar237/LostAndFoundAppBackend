@@ -4,7 +4,5 @@ import com.techtransformers.lostnfound.entity.LostAndFoundEntity;
 
 public interface LostAndFoundService {
 
-	Integer insertLostItem(LostAndFoundEntity lostItem);
-
-	Integer insertFoundItem(LostAndFoundEntity foundItem);
+	Integer insertLostAndFoundItem(LostAndFoundEntity lostAndFoundItem);
 }

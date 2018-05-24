@@ -13,12 +13,7 @@ public class LostAndFoundServiceImpl implements LostAndFoundService {
 	@Autowired
 	private LostAndFoundDao lostAndFoundDao;
 
-	public Integer insertLostItem(LostAndFoundEntity lostItem) {
-		return lostAndFoundDao.insertLostItem(lostItem);
+	public Integer insertLostAndFoundItem(LostAndFoundEntity lostAndFoundItem) {
+		return lostAndFoundDao.insertLostAndFoundItem(lostAndFoundItem);
 	}
-
-	public Integer insertFoundItem(LostAndFoundEntity foundItem) {
-		return lostAndFoundDao.insertFoundItem(foundItem);
-	}
-
 }

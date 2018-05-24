@@ -23,49 +23,26 @@ public class LostAndFoundController {
 
 	@Autowired
 	private LostAndFoundService lostAndFoundService;
-	@CrossOrigin(origins = {"http://192.168.56.1:8080","*"},
+	
+	@CrossOrigin(origins = {"http://192.168.0.116:8080","*"},
             maxAge = 4800, allowCredentials = "false") 
-	@RequestMapping(value = "/report/lost", method = RequestMethod.POST, headers = "Accept=application/json")
-	public ResponseEntity<LostAndFoundItemResponse> insertLostItem(@RequestBody LostAndFound lostItem)
+	@RequestMapping(value = "/report/lostandfound", method = RequestMethod.POST, headers = "Accept=application/json")
+	public ResponseEntity<LostAndFoundItemResponse> insertLostAndFoundItem(@RequestBody LostAndFound lostAndFoundItem)
 			throws LostAndFoundItemException {
 
 		LostAndFoundItemResponse lostAndFoundItemResponse = new LostAndFoundItemResponse();
 
-		if (!StringUtils.isBlank(lostItem.getData().getEmail()) &&
-				lostItem.getData().getCategory().equalsIgnoreCase(LostAndFoundConstants.LOST)) {
-			LostAndFoundEntity lostItemEntity = LostAndFoundProcessor.convertLostItemBeanToEntity(lostItem);
-			Integer lostItemId = lostAndFoundService.insertLostItem(lostItemEntity);
+		if (!StringUtils.isBlank(lostAndFoundItem.getData().getEmail())) {
+			LostAndFoundEntity lostAndFoundItemEntity = LostAndFoundProcessor.convertLostItemBeanToEntity(lostAndFoundItem);
+			Integer lostAndFoundItemId = lostAndFoundService.insertLostAndFoundItem(lostAndFoundItemEntity);
 
-			if (null != lostItemId) {
+			if (null != lostAndFoundItemId) {
 				lostAndFoundItemResponse.setCode(HttpStatus.OK.value());
 				lostAndFoundItemResponse.setMessage(LostAndFoundConstants.REGISTERED_SUCCESS);
 			} else {
 				throw new LostAndFoundItemException(LostAndFoundConstants.TRY_AGAIN);
 			}
 
-		} else {
-			throw new LostAndFoundItemException(LostAndFoundConstants.TRY_AGAIN);
-		}
-		return new ResponseEntity<LostAndFoundItemResponse>(lostAndFoundItemResponse, HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/report/found", method = RequestMethod.POST, headers = "Accept=application/json")
-	public ResponseEntity<LostAndFoundItemResponse> insertFoundItem(@RequestBody LostAndFound foundItem)
-			throws LostAndFoundItemException {
-
-		LostAndFoundItemResponse lostAndFoundItemResponse = new LostAndFoundItemResponse();
-
-		if (!StringUtils.isBlank(foundItem.getData().getEmail()) && 
-				foundItem.getData().getCategory().equalsIgnoreCase(LostAndFoundConstants.FOUND)) {
-			LostAndFoundEntity foundItemEntity = LostAndFoundProcessor.convertFoundItemBeanToEntity(foundItem);
-			Integer foundItemId = lostAndFoundService.insertFoundItem(foundItemEntity);
-
-			if (null != foundItemId) {
-				lostAndFoundItemResponse.setCode(HttpStatus.OK.value());
-				lostAndFoundItemResponse.setMessage(LostAndFoundConstants.REGISTERED_SUCCESS);
-			} else {
-				throw new LostAndFoundItemException(LostAndFoundConstants.TRY_AGAIN);
-			}
 		} else {
 			throw new LostAndFoundItemException(LostAndFoundConstants.TRY_AGAIN);
 		}

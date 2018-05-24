@@ -15,11 +15,7 @@ public class LostAndFoundDaoImpl implements LostAndFoundDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public Integer insertLostItem(LostAndFoundEntity lostItem) {
-		return (Integer) sessionFactory.getCurrentSession().save(lostItem);
-	}
-
-	public Integer insertFoundItem(LostAndFoundEntity foundItem) {
-		return (Integer) sessionFactory.getCurrentSession().save(foundItem);
+	public Integer insertLostAndFoundItem(LostAndFoundEntity lostAndFoundItem) {
+		return (Integer) sessionFactory.getCurrentSession().save(lostAndFoundItem);
 	}
 }
