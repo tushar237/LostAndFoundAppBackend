@@ -1,9 +1,11 @@
 package com.techtransformers.lostnfound.controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +49,18 @@ public class LostAndFoundController {
 			throw new LostAndFoundItemException(LostAndFoundConstants.TRY_AGAIN);
 		}
 		return new ResponseEntity<LostAndFoundItemResponse>(lostAndFoundItemResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/report/lostItem", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<LostAndFound> getLostItems() {
+		return LostAndFoundProcessor.convertLostItemBeanToResponse(
+				lostAndFoundService.getLostAndFoundItems(LostAndFoundConstants.ITEM_LOST));
+	}
+	
+	@RequestMapping(value = "/report/foundItem", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<LostAndFound> getFoundItems() {
+		return LostAndFoundProcessor.convertLostItemBeanToResponse(
+				lostAndFoundService.getLostAndFoundItems(LostAndFoundConstants.ITEM_FOUND));
 	}
 
 	@ExceptionHandler(LostAndFoundItemException.class)

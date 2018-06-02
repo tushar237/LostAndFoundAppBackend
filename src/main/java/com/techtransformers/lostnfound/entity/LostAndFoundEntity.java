@@ -1,5 +1,7 @@
 package com.techtransformers.lostnfound.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ public class LostAndFoundEntity {
 	@Column(name="id")
 	private Integer id;
 	@Column(name="createdon")
-	private String createdOn;
+	private Timestamp createdOn;
 	@Column(name="category")
 	private String category;
 	@Column(name="name")
@@ -28,13 +30,13 @@ public class LostAndFoundEntity {
 	@Column(name="description")
 	private String description;
 	@Column(name="lostrcvdate")
-	private String lostRcvDate;
+	private Timestamp lostRcvDate;
 
-	public String getCreatedOn() {
+	public Timestamp getCreatedOn() {
 		return createdOn;
 	}
 
-	public void setCreatedOn(String createdOn) {
+	public void setCreatedOn(Timestamp createdOn) {
 		this.createdOn = createdOn;
 	}
 
@@ -78,18 +80,18 @@ public class LostAndFoundEntity {
 		this.description = description;
 	}
 
-	public String getLostRcvDate() {
+	public Timestamp getLostRcvDate() {
 		return lostRcvDate;
 	}
 
-	public void setLostRcvDate(String lostRcvDate) {
+	public void setLostRcvDate(Timestamp lostRcvDate) {
 		this.lostRcvDate = lostRcvDate;
 	}
 
 	@Override
 	public String toString() {
-		return "LostAndFoundEntity [createdOn=" + createdOn + ", category=" + category + ", name=" + name + ", email="
-				+ email + ", attachment=" + attachment + ", description=" + description + ", lostRcvDate=" + lostRcvDate
-				+ "]";
+		return "LostAndFoundEntity [id=" + id + ", createdOn=" + createdOn + ", category=" + category + ", name=" + name
+				+ ", email=" + email + ", attachment=" + attachment + ", description=" + description + ", lostRcvDate="
+				+ lostRcvDate + "]";
 	}
 }
